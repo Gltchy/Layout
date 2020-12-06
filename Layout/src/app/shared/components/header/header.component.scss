@@ -1,4 +1,19 @@
 header{
     padding: 15px;
-    background-color:  lightseagreen;
+    background-color:  white;
+    height: 100px;
+    box-shadow: inset 0px -7px 6px 0px #888888;
+}
+a{
+    color:rgb(132, 132, 143);
+    text-decoration: none;
+    font-size: 23px;
+
+   
+}
+a:hover{
+    color: #1e32bd !important;
+}
+.active{
+    color: #1e32bd;
 }

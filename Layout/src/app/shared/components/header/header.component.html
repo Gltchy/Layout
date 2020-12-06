@@ -1,8 +1,9 @@
 <header fxLayoutAlign='space-between center'>
-    <div>LOGO</div>
+    <div><img style="height: 70px;" src="../../../../assets/logo.png"></div>
     <div fxLayoutGap='20px'>
-        <a routerLink="/">Home</a>
-        <a routerLink="/posts">Posts</a>
-        <a routerLink="/login">Logout</a>
+        <a routerLink="/acceuil" [routerLinkActive]="['active']">Acceuil</a>
+        <a routerLink="/eval" [routerLinkActive]="['active']">Evaluation de votre propriété
+            </a>
+        <a routerLink="/contact" [routerLinkActive]="['active']">Contact</a>
     </div>
 </header>

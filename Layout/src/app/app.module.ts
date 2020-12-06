@@ -4,8 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DefaultModule } from './layouts/default/default.module';
-import { FullwidthModule } from './layouts/fullwidth/fullwidth.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './modules/interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,9 +15,15 @@ import { FullwidthModule } from './layouts/fullwidth/fullwidth.module';
     BrowserModule,
     AppRoutingModule,
     DefaultModule,
-    FullwidthModule
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

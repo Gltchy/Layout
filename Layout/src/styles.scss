@@ -4,3 +4,9 @@ html{
     margin: 0;
     height: 100%;
 }
+
+.algolia-places {
+    text-align: left !important;
+    width: 67% !important;
+}
+@import "../node_modules/ol/ol.css";

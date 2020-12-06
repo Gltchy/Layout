@@ -1,0 +1,13 @@
+<div fxLayout='row' style="background-image: url(../../../assets/neighborhood.jpg);height: 100%;">
+    <div fxFlexAlign='center' class="opaque-container">
+        <form [formGroup]="form" (ngSubmit)='sendMsg()'>
+            <div fxLayout='column' fxLayoutGap='13px'> 
+                <input formControlName="nameF" type="text" pInputText placeholder="Votre prénom" />
+                <input formControlName="nameL" type="text" pInputText placeholder="Votre nom" />
+                <input formControlName="country" type="text" pInputText placeholder="Votre nom" />
+                <input style="height:200px" formControlName="subject" type="text" pInputText placeholder="sujet" />
+                <button fxFlex="40" pButton type="submit" label="Send" [disabled]='!form.valid'></button>
+            </div>
+        </form>
+    </div>
+</div>

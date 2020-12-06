@@ -5,9 +5,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
-
-
-
+import {InputTextModule} from 'primeng/inputtext';
+import {DropdownModule} from 'primeng/dropdown';
+import {ButtonModule} from 'primeng/button';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -17,13 +17,19 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FlexLayoutModule,
-    RouterModule
+    RouterModule,
+    InputTextModule,
+    DropdownModule,
+    ButtonModule
   ],
   exports:[
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    FlexLayoutModule
+    FlexLayoutModule,
+    InputTextModule,
+    DropdownModule,
+    ButtonModule
   ]
 })
 export class SharedModule { }
