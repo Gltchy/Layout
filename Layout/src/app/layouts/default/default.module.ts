@@ -10,13 +10,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from 'src/app/modules/contact/contact.component';
 import { ServicesService } from 'src/app/modules/services.service';
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
+import { MapComponent } from 'src/app/modules/map/map.component';
 
 
 @NgModule({
   declarations: [DefaultComponent,
     HomeComponent,
     PostsComponent,
-    ContactComponent
+    ContactComponent,
+    MapComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,6 @@ import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http'
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    
   ],
   providers: [
     ServicesService,

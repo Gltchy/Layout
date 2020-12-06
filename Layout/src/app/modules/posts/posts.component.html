@@ -9,74 +9,76 @@
                 oû aimeriez-vous recevoir votre rapport d'évaluation?
             </span>
         </div>
-        <div *ngIf="formPage == 2" class="title" >
+        <div *ngIf="formPage == 2" class="title">
             Quelque détails supplémentaires</div>
 
         <form [formGroup]="formStep1">
             <div *ngIf="formPage == 0" fxLayout='row' fxLayoutAlign="space-around none">
-                <input  type="search" formControlName='coordinates' pInputText #addressInput placeholder="Where are we going?" />
+                <input type="search"  pInputText #addressInput
+                    placeholder="Where are we going?" />
                 <!-- <input  fxFlex="60" type="text" formControlName='coordinates' pInputText placeholder="TO DO ANGOLIA" /> -->
                 <input fxFlex="15" type="number" formControlName='aptNumber' pInputText placeholder=" Apt #" />
-                <button (click)='formPage=1;' fxFlex="15" pButton type="submit" label="SUIVANT" [disabled]='!formStep1.valid'
-                    class="p-button-danger"></button>
+                <button (click)='formPage=1;' fxFlex="15" pButton type="submit" label="SUIVANT"
+                    [disabled]='!formStep1.valid' class="p-button-danger"></button>
             </div>
         </form>
         <form [formGroup]="formStep2">
             <div *ngIf="formPage == 1" fxLayout='row' style="color: white;width: 100%;">
-                <div fxFlex="50">
-                    maps to do
+                <div fxFlex="50" style="padding : 26px;">
+                    <map class="map" *ngIf="formStep1.controls['coordinates'].value" [center]="formStep1.controls['coordinates'].value" [zoom]="8.5" (mapReady)="onMapReady($event)"></map>
                 </div>
                 <div style="height: 340px;" fxFlex="50" fxLayout='column' fxLayoutAlign="space-evenly  none">
-                    <input formControlName="name" type="text" pInputText placeholder="Votre nom"  />
+                    <input formControlName="name" type="text" pInputText placeholder="Votre nom" />
                     <input formControlName="email" type="email" pInputText placeholder="Votre couriel" />
                     <input formControlName="phone" type="number" pInputText placeholder="Votre téléphone" />
-                    <p-dropdown placeholder='--délai de vente--'  
-                    [style]="{'width': '100%'}" formControlName="period" [options]="periods"  ></p-dropdown>
+                    <p-dropdown placeholder='--délai de vente--' [style]="{'width': '100%'}" formControlName="period"
+                        [options]="periods"></p-dropdown>
                     <div fxLayout='row' fxLayoutAlign="space-between none">
                         <button (click)="formPage=0" fxFlex="40" pButton type="button" label="RETOUR"
                             class="p-button-danger"></button>
-                        <button (click)="formPage=2" fxFlex="40" pButton type="button" label="SUIVANT" [disabled]='!formStep2.valid'
-                            class="p-button-danger"></button>
+                        <button (click)="formPage=2" fxFlex="40" pButton type="button" label="SUIVANT"
+                            [disabled]='!formStep2.valid' class="p-button-danger"></button>
                     </div>
                 </div>
             </div>
         </form>
-        <form [formGroup]='formStep3'>    
+        <form [formGroup]='formStep3'>
             <div *ngIf="formPage==2">
-                <div fxLayout="row wrap"  fxLayoutAlign='space-between '> 
-                    <p-dropdown fxFlex='49' placeholder="--Année d'aquisition--"  
-                    [style]="{'width': '100%'}" formControlName="year" [options]="periods"  ></p-dropdown>
-                    <p-dropdown fxFlex='49' placeholder='--type de propriété--'  
-                    [style]="{'width': '100%'}" formControlName="type" [options]="periods"  ></p-dropdown>
-                    
+                <div fxLayout="row wrap" fxLayoutAlign='space-between '>
+                    <p-dropdown fxFlex='49' placeholder="--Année d'aquisition--" [style]="{'width': '100%'}"
+                        formControlName="year" [options]="periods"></p-dropdown>
+                    <p-dropdown fxFlex='49' placeholder='--type de propriété--' [style]="{'width': '100%'}"
+                        formControlName="type" [options]="periods"></p-dropdown>
+
                 </div>
-                <div style="margin-top: 13px;" fxLayout="row wrap"  fxLayoutAlign='space-between'>
-                    <input fxFlex="49" formControlName="price"  type="number" pInputText placeholder="Prix d'aquisition" />
-                    <input fxFlex="49" formControlName="bedrooms" type="number" pInputText placeholder="Nombre de chambres" />
+                <div style="margin-top: 13px;" fxLayout="row wrap" fxLayoutAlign='space-between'>
+                    <input fxFlex="49" formControlName="price" type="number" pInputText
+                        placeholder="Prix d'aquisition" />
+                    <input fxFlex="49" formControlName="bedrooms" type="number" pInputText
+                        placeholder="Nombre de chambres" />
                 </div>
-                <div style="margin-top: 15px;" fxLayout="row wrap"  fxLayoutAlign='space-between'>
+                <div style="margin-top: 15px;" fxLayout="row wrap" fxLayoutAlign='space-between'>
                     <button (click)="formPage=1" fxFlex="49" pButton type="button" label="RETOUR"
-                    class="p-button-danger"></button>
-                <button (click)="estimate()" fxFlex="49" pButton type="button" label="OBTENIR LA VALEUR" [disabled]='!formStep3.valid'
-                    class="p-button-danger"></button>
+                        class="p-button-danger"></button>
+                    <button (click)="estimate()" fxFlex="49" pButton type="button" label="OBTENIR LA VALEUR"
+                        [disabled]='!formStep3.valid' class="p-button-danger"></button>
                 </div>
 
             </div>
         </form>
 
     </div>
-    <div *ngIf="formPage==3" fxFlexAlign='center' class="opaque-container opaque-white" >
+    <div *ngIf="formPage==3" fxFlexAlign='center' class="opaque-container opaque-white">
         <div class="title">
             Estimation de la valeur actuelle de la propriété
         </div>
         <div style="text-align: center;font-size: 32px;">
             $48
         </div>
-        <img src="../../../assets/triangle.png" 
-        style="height: 16px;width:16px;position: relative;  bottom: -5px;">
+        <img src="../../../assets/triangle.png" style="height: 16px;width:16px;position: relative;  bottom: -5px;">
 
-        <div  style="border: solid 1px #cecece8f;padding:8px 0 ;border-right:none;border-left: none;">
-            <div fxLayout='row' fxLayoutAlign='space-between none '  style="margin-bottom: 10px;">
+        <div style="border: solid 1px #cecece8f;padding:8px 0 ;border-right:none;border-left: none;">
+            <div fxLayout='row' fxLayoutAlign='space-between none ' style="margin-bottom: 10px;">
                 <div fxFlex="30" style="text-align: center;font-size: 19px;">
                     $45 <br>Estimation basse
                 </div>
@@ -86,31 +88,34 @@
             </div>
             <div style="font-size: 24px;">
                 Variation de la valeur de votre propriété: 15.86% <br>
-                <span style="font-size: 15px;">depuis 2005 l'augmentation de la valeur estimée de la propriété est 5.46% croissance composée /an</span>
+                <span style="font-size: 15px;">depuis 2005 l'augmentation de la valeur estimée de la propriété est 5.46%
+                    croissance composée /an</span>
             </div>
         </div>
-        <div fxLayout='row' style="margin-top: 20px;border-bottom: black 3px solid;padding-bottom: 6px;" fxLayoutAlign='space-between none'>
+        <div fxLayout='row' style="margin-top: 20px;border-bottom: black 3px solid;padding-bottom: 6px;"
+            fxLayoutAlign='space-between none'>
             <div fxFlex="20" style="font-size: 22px;font-weight: bold;">
                 Sylvain goulet<br><span style="font-weight: 600;font-size: 18px;"> Courtier Immobiler</span>
             </div>
             <div fxFlex="60" style="text-align: left;font-weight: bold;">
-                Nous préparons actuellement votre Rapport d'Evaluation Gratuit! nous vous l'enverrons sous peu. Un de nos experts en évaluation vous contacteras pour vous posez quelques questions. 
+                Nous préparons actuellement votre Rapport d'Evaluation Gratuit! nous vous l'enverrons sous peu. Un de
+                nos experts en évaluation vous contacteras pour vous posez quelques questions.
             </div>
         </div>
     </div>
     <div id="map" class="map"></div>
     <script type="text/javascript">
-      var map = new ol.Map({
-        target: 'map',
-        layers: [
-          new ol.layer.Tile({
-            source: new ol.source.OSM()
-          })
-        ],
-        view: new ol.View({
-          center: ol.proj.fromLonLat([37.41, 8.82]),
-          zoom: 4
-        })
-      });
+        var map = new ol.Map({
+            target: 'map',
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                })
+            ],
+            view: new ol.View({
+                center: ol.proj.fromLonLat([37.41, 8.82]),
+                zoom: 4
+            })
+        });
     </script>
 </div>

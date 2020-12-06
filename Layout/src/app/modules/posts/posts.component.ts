@@ -50,20 +50,27 @@ export class PostsComponent implements OnInit {
         apiKey: '6d2d8be89a9898544521be7106fb42f9',
         container: this.qElementRef.nativeElement
       });
-      this.placesAutocomplete.on('change', function(e) {
-        console.log(e);
-        console.log(      e.suggestion.value
-          );
+      this.placesAutocomplete.on('change', (e) => {
+        console.log(e.suggestion.latlng);
+        
+        this.formStep1.controls['coordinates'].setValue([e.suggestion.latlng.lat,e.suggestion.latlng.lng])
+        console.log(this.formStep1.controls['coordinates'].value);
         
       });
-    }, 3000);
+    }, 100);
 
     
   }
+  
+
   
   estimate() {
     this.formPage = 3;
     console.log(this.formStep1.controls['coordinates'].value);
     
+  }
+
+  onMapReady(){
+
   }
 }
