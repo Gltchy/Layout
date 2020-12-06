@@ -17,7 +17,7 @@
                 <input  type="search" formControlName='coordinates' pInputText #addressInput placeholder="Where are we going?" />
                 <!-- <input  fxFlex="60" type="text" formControlName='coordinates' pInputText placeholder="TO DO ANGOLIA" /> -->
                 <input fxFlex="15" type="number" formControlName='aptNumber' pInputText placeholder=" Apt #" />
-                <button (click)='formPage=1;estimate()' fxFlex="15" pButton type="submit" label="SUIVANT" [disabled]='!formStep1.valid'
+                <button (click)='formPage=1;' fxFlex="15" pButton type="submit" label="SUIVANT" [disabled]='!formStep1.valid'
                     class="p-button-danger"></button>
             </div>
         </form>
