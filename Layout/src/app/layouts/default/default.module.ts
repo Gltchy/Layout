@@ -13,6 +13,8 @@ import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http'
 import { MapComponent } from 'src/app/modules/map/map.component';
 
 
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [DefaultComponent,
     HomeComponent,
@@ -26,6 +28,9 @@ import { MapComponent } from 'src/app/modules/map/map.component';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyChtfmz-pwgVBmr-ewAxiKQ3DQhMSE_knU'
+    })
   ],
   providers: [
     ServicesService,

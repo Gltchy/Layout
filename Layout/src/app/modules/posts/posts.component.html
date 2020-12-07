@@ -25,7 +25,10 @@
         <form [formGroup]="formStep2">
             <div *ngIf="formPage == 1" fxLayout='row' style="color: white;width: 100%;">
                 <div fxFlex="50" style="padding : 26px;">
-                    <map class="map" *ngIf="formStep1.controls['coordinates'].value" [center]="formStep1.controls['coordinates'].value" [zoom]="8.5" (mapReady)="onMapReady($event)"></map>
+                    <agm-map [zoom]='18' style="height: 287px;" [latitude]="lat" [longitude]="lng">
+                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                      </agm-map>
+             
                 </div>
                 <div style="height: 340px;" fxFlex="50" fxLayout='column' fxLayoutAlign="space-evenly  none">
                     <input formControlName="name" type="text" pInputText placeholder="Votre nom" />

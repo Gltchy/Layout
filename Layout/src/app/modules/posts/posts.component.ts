@@ -12,6 +12,7 @@ export class PostsComponent implements OnInit {
 
   @ViewChild('addressInput' , {static: false}) qElementRef: ElementRef;
 
+  lat;lng;
   placesAutocomplete
   formPage: number = 0
   formStep1: FormGroup;
@@ -22,6 +23,7 @@ export class PostsComponent implements OnInit {
     { value: 1, label: 1 },
     { value: 1, label: 1 }
   ]
+
   constructor(fb: FormBuilder, private router: Router) {
     this.formStep1 = fb.group({
       coordinates: fb.control('', Validators.required),
@@ -44,6 +46,7 @@ export class PostsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     setTimeout(() => {
       this.placesAutocomplete = places({
         appId: 'pl4CDAJILUX7',
@@ -51,26 +54,19 @@ export class PostsComponent implements OnInit {
         container: this.qElementRef.nativeElement
       });
       this.placesAutocomplete.on('change', (e) => {
-        console.log(e.suggestion.latlng);
-        
+        console.log(e.suggestion.latlng);        
         this.formStep1.controls['coordinates'].setValue([e.suggestion.latlng.lat,e.suggestion.latlng.lng])
-        console.log(this.formStep1.controls['coordinates'].value);
-        
+        this.lat=     e.suggestion.latlng.lat;
+        this.lng=     e.suggestion.latlng.lng;
+
       });
     }, 100);
 
     
   }
-  
 
-  
   estimate() {
     this.formPage = 3;
     console.log(this.formStep1.controls['coordinates'].value);
-    
-  }
-
-  onMapReady(){
-
   }
 }
