@@ -1,5 +1,4 @@
-<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
-<div fxLayout='row' style="background-image: url(../../../assets/neighborhood.jpg);height: 100%;">
+<div fxLayout='row' style="background-image: url(../../../assets/form.jpg);height: 100%;">
     <div *ngIf="formPage !=3" fxFlexAlign='center' class="opaque-container">
         <div *ngIf="formPage == 0" class="title">
             Découvrez la valeur marchande de votre propriété</div>
@@ -51,7 +50,7 @@
                     <p-dropdown fxFlex='49' placeholder="--Année d'aquisition--" [style]="{'width': '100%'}"
                         formControlName="year" [options]="periods"></p-dropdown>
                     <p-dropdown fxFlex='49' placeholder='--type de propriété--' [style]="{'width': '100%'}"
-                        formControlName="type" [options]="periods"></p-dropdown>
+                        formControlName="type" [options]="propertyType"></p-dropdown>
 
                 </div>
                 <div style="margin-top: 13px;" fxLayout="row wrap" fxLayoutAlign='space-between'>
@@ -76,22 +75,22 @@
             Estimation de la valeur actuelle de la propriété
         </div>
         <div style="text-align: center;font-size: 32px;">
-            $48
+            {{actuel}}
         </div>
         <img src="../../../assets/triangle.png" style="height: 16px;width:16px;position: relative;  bottom: -5px;">
 
         <div style="border: solid 1px #cecece8f;padding:8px 0 ;border-right:none;border-left: none;">
             <div fxLayout='row' fxLayoutAlign='space-between none ' style="margin-bottom: 10px;">
                 <div fxFlex="30" style="text-align: center;font-size: 19px;">
-                    $45 <br>Estimation basse
+                    {{basse}} <br>Estimation basse
                 </div>
                 <div fxFlex="30" style="text-align: center;font-size: 19px;">
-                    $45 <br>Estimation élevée
+                    {{elevee}} <br>Estimation élevée
                 </div>
             </div>
             <div style="font-size: 24px;">
-                Variation de la valeur de votre propriété: 15.86% <br>
-                <span style="font-size: 15px;">depuis 2005 l'augmentation de la valeur estimée de la propriété est 5.46%
+                Variation de la valeur de votre propriété: {{porcentage}} <br>
+                <span style="font-size: 15px;">depuis {{year}} l'augmentation de la valeur estimée de la propriété est {{croissance}}
                     croissance composée /an</span>
             </div>
         </div>
@@ -101,8 +100,7 @@
                 Sylvain goulet<br><span style="font-weight: 600;font-size: 18px;"> Courtier Immobiler</span>
             </div>
             <div fxFlex="60" style="text-align: left;font-weight: bold;">
-                Nous préparons actuellement votre Rapport d'Evaluation Gratuit! nous vous l'enverrons sous peu. Un de
-                nos experts en évaluation vous contacteras pour vous posez quelques questions.
+                Merci, Vous allez recevoir une évaluation approximative et l’un de nos agents vous appellera dans les prochaines 48 h pour établir l’évaluation marchande de votre propriété. 
             </div>
         </div>
     </div>

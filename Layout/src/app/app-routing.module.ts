@@ -6,7 +6,13 @@ import { ContactComponent } from './modules/contact/contact.component';
 import { HomeComponent } from './modules/home/home.component';
 import { PostsComponent } from './modules/posts/posts.component';
 
-const routes: Routes = [{
+const routes: Routes = [
+  {
+    path:'',
+    redirectTo: '/acceuil',
+    pathMatch: 'full'
+  },
+  {
   path: '',
   component:  DefaultComponent,
   children: [{

@@ -17,14 +17,10 @@ import { TokenInterceptor } from './modules/interceptor';
     AppRoutingModule,
     DefaultModule,
     BrowserAnimationsModule,
-    
+    HttpClientModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
+    
   ],
   bootstrap: [AppComponent]
 })

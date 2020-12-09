@@ -11,9 +11,10 @@ export class HomeComponent implements OnInit {
   photoSrc: any;
 
   constructor(service : ServicesService) { 
+   
     service.getHomeInfo().subscribe((res : any)=>{
-      this.desc = res.description;
-      this.photoSrc = res.srcImg
+      this.desc = res.data[0].description;
+      this.photoSrc = res.data[0].srcImg
     })
   }
 
