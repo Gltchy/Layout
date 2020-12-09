@@ -1,4 +1,4 @@
-<div fxLayout='row' style="background-image: url(../../../assets/form.jpg);height: 100%;">
+<div fxLayout='row' style="background-image: url(../../../assets/home.jpg);height: 100%;">
     <span class='back-arrow' *ngIf="formPage == 3"  style="cursor: pointer;" (click)='formPage = 0;reset()'><i  class="fas fa-arrow-left"></i></span>
     <div *ngIf="formPage !=3" fxFlexAlign='center' class="opaque-container">
         <div *ngIf="formPage == 0" class="title">
@@ -10,7 +10,7 @@
             </span>
         </div>
         <div *ngIf="formPage == 2" class="title">
-            Quelque détails supplémentaires</div>
+            Quelques détails supplémentaires</div>
 
         <form [formGroup]="formStep1">
             <div *ngIf="formPage == 0" fxLayout='row' fxLayoutAlign="space-around none">
@@ -98,7 +98,7 @@
         <div fxLayout='row' style="margin-top: 20px;border-bottom: black 3px solid;padding-bottom: 6px;"
             fxLayoutAlign='space-between none'>
             <div fxFlex="20" style="font-size: 22px;font-weight: bold;">
-                Sylvain goulet<br><span style="font-weight: 600;font-size: 18px;"> Courtier Immobiler</span>
+                Mohamed Ben Saidane<br><span style="font-weight: 600;font-size: 18px;"> Courtier Immobiler</span>
             </div>
             <div fxFlex="60" style="text-align: left;font-weight: bold;">
                 Merci, Vous allez recevoir une évaluation approximative et l’un de nos agents vous appellera dans les prochaines 48 h pour établir l’évaluation marchande de votre propriété. 
