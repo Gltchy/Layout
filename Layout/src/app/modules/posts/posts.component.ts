@@ -31,6 +31,8 @@ export class PostsComponent implements OnInit {
   croissance: any;
   elevee: any;
   porcentage: any;
+  yearAq =[];
+  delais= [];
 
   constructor(fb: FormBuilder, private service : ServicesService) {
     this.formStep1 = fb.group({
@@ -50,7 +52,6 @@ export class PostsComponent implements OnInit {
       bedrooms: fb.control('', Validators.required),
     })
 
-    
   }
 
   ngOnInit(): void {
@@ -58,7 +59,16 @@ export class PostsComponent implements OnInit {
       res.data.forEach(element => {
         this.propertyType.push({value:element.name,label:element.name})
       });
-      
+    })
+    this.service.getDelais().subscribe((res:any)=>{
+      res.data.forEach(element => {
+        this.delais.push({value:element.name,label:element.name})
+      });
+    })
+    this.service.getAqui().subscribe((res:any)=>{
+      res.data.forEach(element => {
+        this.yearAq.push({value:element.name,label:element.name})
+      });
     })
     setTimeout(() => {
       this.placesAutocomplete = places({

@@ -28,4 +28,12 @@ export class ServicesService {
   postContact(contact){
     return this.http.post('http://medimmo.ca/api/contact', contact);
   }
+
+  getDelais(){
+    return this.http.get('http://medimmo.ca/api/delais');
+  }
+
+  getAqui(){
+    return this.http.get('http://medimmo.ca/api/aquisition');
+  }
 }

@@ -34,7 +34,7 @@
                     <input formControlName="email" type="email" pInputText placeholder="Votre couriel" />
                     <input formControlName="phone" type="number" pInputText placeholder="Votre téléphone" />
                     <p-dropdown placeholder='--délai de vente--' [style]="{'width': '100%'}" formControlName="period"
-                        [options]="periods"></p-dropdown>
+                        [options]="delais"></p-dropdown>
                     <div fxLayout='row' fxLayoutAlign="space-between none">
                         <button (click)="formPage=0" fxFlex="40" pButton type="button" label="RETOUR"
                             class="p-button-danger"></button>
@@ -48,7 +48,7 @@
             <div *ngIf="formPage==2">
                 <div fxLayout="row wrap" fxLayoutAlign='space-between '>
                     <p-dropdown fxFlex='49' placeholder="--Année d'aquisition--" [style]="{'width': '100%'}"
-                        formControlName="year" [options]="periods"></p-dropdown>
+                        formControlName="year" [options]="yearAq"></p-dropdown>
                     <p-dropdown fxFlex='49' placeholder='--type de propriété--' [style]="{'width': '100%'}"
                         formControlName="type" [options]="propertyType"></p-dropdown>
 
