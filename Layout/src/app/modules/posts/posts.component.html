@@ -1,4 +1,5 @@
 <div fxLayout='row' style="background-image: url(../../../assets/form.jpg);height: 100%;">
+    <span class='back-arrow' *ngIf="formPage == 3"  style="cursor: pointer;" (click)='formPage = 0;reset()'><i  class="fas fa-arrow-left"></i></span>
     <div *ngIf="formPage !=3" fxFlexAlign='center' class="opaque-container">
         <div *ngIf="formPage == 0" class="title">
             Découvrez la valeur marchande de votre propriété</div>
@@ -36,7 +37,7 @@
                     <p-dropdown placeholder='--délai de vente--' [style]="{'width': '100%'}" formControlName="period"
                         [options]="delais"></p-dropdown>
                     <div fxLayout='row' fxLayoutAlign="space-between none">
-                        <button (click)="formPage=0" fxFlex="40" pButton type="button" label="RETOUR"
+                        <button (click)="formPage=0;reset()" fxFlex="40" pButton type="button" label="RETOUR"
                             class="p-button-danger"></button>
                         <button (click)="formPage=2" fxFlex="40" pButton type="button" label="SUIVANT"
                             [disabled]='!formStep2.valid' class="p-button-danger"></button>

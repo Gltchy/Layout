@@ -15,7 +15,7 @@ export class PostsComponent implements OnInit {
 
   lat;lng;
   placesAutocomplete
-  formPage: number = 0
+  formPage: number = 3
   formStep1: FormGroup;
   formStep2: FormGroup;
   formStep3: FormGroup;
@@ -85,6 +85,23 @@ export class PostsComponent implements OnInit {
     }, 100);
 
     
+  }
+
+
+  reset(){
+    setTimeout(() => {
+      this.placesAutocomplete = places({
+        appId: 'pl4CDAJILUX7',
+        apiKey: '6d2d8be89a9898544521be7106fb42f9',
+        container: this.qElementRef.nativeElement
+      });
+      this.placesAutocomplete.on('change', (e) => {     
+        this.formStep1.controls['coordinates'].setValue(e.suggestion.value)
+        this.lat=     e.suggestion.latlng.lat;
+        this.lng=     e.suggestion.latlng.lng;
+
+      });
+    }, 100);
   }
 
   estimate() {
