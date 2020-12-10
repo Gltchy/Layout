@@ -9,14 +9,14 @@ import { PostsComponent } from './modules/posts/posts.component';
 const routes: Routes = [
   {
     path:'',
-    redirectTo: '/acceuil',
+    redirectTo: '/accueil',
     pathMatch: 'full'
   },
   {
   path: '',
   component:  DefaultComponent,
   children: [{
-    path: 'acceuil',
+    path: 'accueil',
     component:  HomeComponent,
   },
   {

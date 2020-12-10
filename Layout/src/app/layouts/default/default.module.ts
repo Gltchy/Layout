@@ -11,7 +11,7 @@ import { ContactComponent } from 'src/app/modules/contact/contact.component';
 import { ServicesService } from 'src/app/modules/services.service';
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 import { MapComponent } from 'src/app/modules/map/map.component';
-
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -28,6 +28,7 @@ import { AgmCoreModule } from '@agm/core';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    InputTextareaModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyChtfmz-pwgVBmr-ewAxiKQ3DQhMSE_knU'
     })

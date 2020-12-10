@@ -4,9 +4,11 @@
             <div fxLayout='column' fxLayoutGap='13px'> 
                 <input formControlName="nameF" type="text" pInputText placeholder="Votre prénom" />
                 <input formControlName="nameL" type="text" pInputText placeholder="Votre nom" />
-                <p-dropdown placeholder='--Country--' [style]="{'width': '100%','text-align':'left'}" formControlName="country"
-                [options]="countries"></p-dropdown>
-                <input style="height:200px" formControlName="subject" type="text" pInputText placeholder="sujet" />
+                <input formControlName="email" type="email" pInputText placeholder="Votre émail" />
+                <input formControlName="tel" type="tel" pInputText placeholder="Votre télephone" />
+                <textarea rows="4" cols="50" pInputTextarea formControlName="subject"placeholder="sujet">
+                    sujet...</textarea>
+                <!-- <input style="height:200px" formControlName="subject"placeholder="sujet" /> -->
                 <button fxFlex="40" pButton type="submit" label="Send" [disabled]='!form.valid'></button>
             </div>
         </form>

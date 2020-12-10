@@ -7,6 +7,7 @@ import { DefaultModule } from './layouts/default/default.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './modules/interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
