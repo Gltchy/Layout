@@ -15,7 +15,7 @@
         <form [formGroup]="formStep1">
             <div *ngIf="formPage == 0" fxLayoutGap.lt-sm='10px' fxLayout.lt-sm='column' fxLayout='row' fxLayoutAlign="space-around none">
                 <input type="search"  pInputText #addressInput
-                    placeholder="Where are we going?" />
+                    placeholder="Adresse" />
                 <!-- <input  fxFlex="60" type="text" formControlName='coordinates' pInputText placeholder="TO DO ANGOLIA" /> -->
                 <input fxFlex="15" type="number" formControlName='aptNumber' pInputText placeholder=" Apt #" />
                 <button (click)='formPage=1;' fxFlex="15" pButton type="submit" label="SUIVANT"

@@ -1,12 +1,13 @@
 header {
     padding: 15px;
     background-color: white;
-    height: 100px;
+    height: max-content;
+    min-width: 130px;
     box-shadow: inset 0px -7px 6px 0px #888888;
 }
-@media only screen and (max-height: 768px) {
+@media only screen and (max-height: 600px) {
     a {
-        font-size: 20px !important;
+        font-size: 16px !important;
     }
 }
 a {
