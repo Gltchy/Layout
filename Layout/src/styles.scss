@@ -9,5 +9,10 @@ html{
     text-align: left !important;
     width: 67% !important;
 }
-
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .algolia-places {
+        width: 100% !important;
+    }
+  }
 @import '~primeicons/primeicons.css';

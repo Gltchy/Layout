@@ -31,6 +31,7 @@ export class ContactComponent implements OnInit {
       subject : this.form.controls['subject'].value
     }
     this.service.postContact(contact).subscribe()
+    this.form.reset()
   }
 
 

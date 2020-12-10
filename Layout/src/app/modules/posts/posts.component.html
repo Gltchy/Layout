@@ -1,4 +1,4 @@
-<div fxLayout='row' style="background-image: url(../../../assets/home.jpg);height: 100%;">
+<div fxLayout='row' style="background-image: url(../../../assets/home.jpg);height: 100%;padding: 20px 0;">
     <span class='back-arrow' *ngIf="formPage == 3"  style="cursor: pointer;" (click)='formPage = 0;reset()'><i  class="fas fa-arrow-left"></i></span>
     <div *ngIf="formPage !=3" fxFlexAlign='center' class="opaque-container">
         <div *ngIf="formPage == 0" class="title">
@@ -13,7 +13,7 @@
             Quelques détails supplémentaires</div>
 
         <form [formGroup]="formStep1">
-            <div *ngIf="formPage == 0" fxLayout='row' fxLayoutAlign="space-around none">
+            <div *ngIf="formPage == 0" fxLayoutGap.lt-sm='10px' fxLayout.lt-sm='column' fxLayout='row' fxLayoutAlign="space-around none">
                 <input type="search"  pInputText #addressInput
                     placeholder="Where are we going?" />
                 <!-- <input  fxFlex="60" type="text" formControlName='coordinates' pInputText placeholder="TO DO ANGOLIA" /> -->
@@ -23,14 +23,14 @@
             </div>
         </form>
         <form [formGroup]="formStep2">
-            <div *ngIf="formPage == 1" fxLayout='row' style="color: white;width: 100%;">
-                <div fxFlex="50" style="padding : 26px;">
+            <div *ngIf="formPage == 1" fxLayout.lt-sm='column-reverse'  fxLayout='row' style="color: white;width: 100%;">
+                <div fxFlex.sm="50" fxFlex='100' style="padding : 26px;">
                     <agm-map [zoom]='18' style="height: 287px;" [latitude]="lat" [longitude]="lng">
                         <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
                       </agm-map>
              
                 </div>
-                <div style="height: 340px;" fxFlex="50" fxLayout='column' fxLayoutAlign="space-evenly  none">
+                <div style="height: 340px;" fxLayoutGap.lt-sm='10px' fxFlex='100' fxFlex.sm="50" fxLayout='column' fxLayoutAlign="space-evenly  none">
                     <input formControlName="name" type="text" pInputText placeholder="Votre nom" />
                     <input formControlName="email" type="email" pInputText placeholder="Votre couriel" />
                     <input formControlName="phone" type="number" pInputText placeholder="Votre téléphone" />
@@ -47,20 +47,20 @@
         </form>
         <form [formGroup]='formStep3'>
             <div *ngIf="formPage==2">
-                <div fxLayout="row wrap" fxLayoutAlign='space-between '>
+                <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap.lt-sm='10px' fxLayoutAlign='space-between '>
                     <p-dropdown fxFlex='49' placeholder="--Année d'aquisition--" [style]="{'width': '100%'}"
                         formControlName="year" [options]="yearAq"></p-dropdown>
                     <p-dropdown fxFlex='49' placeholder='--type de propriété--' [style]="{'width': '100%'}"
                         formControlName="type" [options]="propertyType"></p-dropdown>
 
                 </div>
-                <div style="margin-top: 13px;" fxLayout="row wrap" fxLayoutAlign='space-between'>
+                <div style="margin-top: 13px;" fxLayout.lt-sm="column" fxLayoutGap.lt-sm='10px' fxLayout="row wrap" fxLayoutAlign='space-between'>
                     <input fxFlex="49" formControlName="price" type="number" pInputText
                         placeholder="Prix d'aquisition" />
                     <input fxFlex="49" formControlName="bedrooms" type="number" pInputText
                         placeholder="Nombre de chambres" />
                 </div>
-                <div style="margin-top: 15px;" fxLayout="row wrap" fxLayoutAlign='space-between'>
+                <div style="margin-top: 15px;"  fxLayout.lt-sm="column" fxLayoutGap.lt-sm='10px' fxLayout="row wrap" fxLayoutAlign='space-between'>
                     <button (click)="formPage=1" fxFlex="49" pButton type="button" label="RETOUR"
                         class="p-button-danger"></button>
                     <button (click)="estimate()" fxFlex="49" pButton type="button" label="OBTENIR LA VALEUR"
@@ -80,7 +80,7 @@
         </div>
         <img src="../../../assets/triangle.png" style="height: 16px;width:16px;position: relative;  bottom: -5px;">
 
-        <div style="border: solid 1px #cecece8f;padding:8px 0 ;border-right:none;border-left: none;">
+        <div style="border: solid 1px #0e0a0a41;padding:8px 0 ;border-right:none;border-left: none;">
             <div fxLayout='row' fxLayoutAlign='space-between none ' style="margin-bottom: 10px;">
                 <div fxFlex="30" style="text-align: center;font-size: 19px;">
                     {{basse}} <br>Estimation basse
@@ -95,7 +95,7 @@
                     croissance composée /an</span>
             </div>
         </div>
-        <div fxLayout='row' style="margin-top: 20px;border-bottom: black 3px solid;padding-bottom: 6px;"
+        <div fxLayout='row' fxLayout.lt-sm='column-reverse' fxLayoutGap.lt-sm='8px' style="margin-top: 20px;border-bottom: black 3px solid;padding-bottom: 6px;"
             fxLayoutAlign='space-between none'>
             <div fxFlex="20" style="font-size: 22px;font-weight: bold;">
                 Mohamed Ben Saidane<br><span style="font-weight: 600;font-size: 18px;"> Courtier Immobiler</span>
@@ -106,18 +106,5 @@
         </div>
     </div>
     <div id="map" class="map"></div>
-    <script type="text/javascript">
-        var map = new ol.Map({
-            target: 'map',
-            layers: [
-                new ol.layer.Tile({
-                    source: new ol.source.OSM()
-                })
-            ],
-            view: new ol.View({
-                center: ol.proj.fromLonLat([37.41, 8.82]),
-                zoom: 4
-            })
-        });
-    </script>
+
 </div>

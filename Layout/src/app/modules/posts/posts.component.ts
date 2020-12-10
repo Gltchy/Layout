@@ -15,7 +15,7 @@ export class PostsComponent implements OnInit {
 
   lat;lng;
   placesAutocomplete
-  formPage: number = 0
+  formPage: number = 3
   formStep1: FormGroup;
   formStep2: FormGroup;
   formStep3: FormGroup;
@@ -129,7 +129,9 @@ export class PostsComponent implements OnInit {
       this.porcentage = res.data[0].porcentage;
 
     })
-
+    this.formStep1.reset()
+    this.formStep2.reset()
+    this.formStep3.reset()
     this.formPage = 3;
   }
 }
