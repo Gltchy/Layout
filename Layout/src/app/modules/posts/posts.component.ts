@@ -15,7 +15,7 @@ export class PostsComponent implements OnInit {
 
   lat;lng;
   placesAutocomplete
-  formPage: number = 3
+  formPage: number = 0
   formStep1: FormGroup;
   formStep2: FormGroup;
   formStep3: FormGroup;
