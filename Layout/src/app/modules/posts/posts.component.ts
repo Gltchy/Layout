@@ -37,7 +37,7 @@ export class PostsComponent implements OnInit {
   constructor(fb: FormBuilder, private service : ServicesService) {
     this.formStep1 = fb.group({
       coordinates: fb.control('', Validators.required),
-      aptNumber: fb.control('', Validators.required),
+      aptNumber: fb.control(''),
     });
     this.formStep2 = fb.group({
       name: fb.control('', Validators.required),
@@ -48,7 +48,6 @@ export class PostsComponent implements OnInit {
     this.formStep3 = fb.group({
       year: fb.control('', Validators.required),
       type: fb.control('', Validators.required),
-      price: fb.control('', Validators.required),
       bedrooms: fb.control('', Validators.required),
     })
 
@@ -116,19 +115,10 @@ export class PostsComponent implements OnInit {
       delaisvente : this.formStep2.controls['period'].value,
       year : this.formStep3.controls['year'].value,
       type : this.formStep3.controls['type'].value,
-      price : this.formStep3.controls['price'].value,
       bedrooms : this.formStep3.controls['bedrooms'].value,
     }
     this.service.postReservation(info).subscribe()
-    this.service.getPropriete().subscribe((res : any)=>{
-      this.actuel = res.data[0].actuelle;
-      this.year = res.data[0].annee;
-      this.basse = res.data[0].basse;
-      this.croissance = res.data[0].croissance;
-      this.elevee = res.data[0].elevee;
-      this.porcentage = res.data[0].porcentage;
 
-    })
     this.formStep1.reset()
     this.formStep2.reset()
     this.formStep3.reset()

@@ -1,5 +1,6 @@
 <div fxLayout='row' style="background-image: url(../../../assets/home.jpg);height: 100%;padding: 20px 0;">
-    <span class='back-arrow' *ngIf="formPage == 3"  style="cursor: pointer;" (click)='formPage = 0;reset()'><i  class="fas fa-arrow-left"></i></span>
+    <span class='back-arrow' *ngIf="formPage == 3" style="cursor: pointer;" (click)='formPage = 0;reset()'><i
+            class="fas fa-arrow-left"></i></span>
     <div *ngIf="formPage !=3" fxFlexAlign='center' class="opaque-container">
         <div *ngIf="formPage == 0" class="title">
             Découvrez la valeur marchande de votre propriété</div>
@@ -13,9 +14,9 @@
             Quelques détails supplémentaires</div>
 
         <form [formGroup]="formStep1">
-            <div *ngIf="formPage == 0" fxLayoutGap.lt-sm='10px' fxLayout.lt-sm='column' fxLayout='row' fxLayoutAlign="space-around none">
-                <input type="search"  pInputText #addressInput
-                    placeholder="Adresse" />
+            <div *ngIf="formPage == 0" fxLayoutGap.lt-sm='10px' fxLayout.lt-sm='column' fxLayout='row'
+                fxLayoutAlign="space-around none">
+                <input type="search" pInputText #addressInput placeholder="Adresse" />
                 <!-- <input  fxFlex="60" type="text" formControlName='coordinates' pInputText placeholder="TO DO ANGOLIA" /> -->
                 <input fxFlex="15" type="number" formControlName='aptNumber' pInputText placeholder=" Apt #" />
                 <button (click)='formPage=1;' fxFlex="15" pButton type="submit" label="SUIVANT"
@@ -23,14 +24,15 @@
             </div>
         </form>
         <form [formGroup]="formStep2">
-            <div *ngIf="formPage == 1" fxLayout.lt-sm='column-reverse'  fxLayout='row' style="color: white;width: 100%;">
+            <div *ngIf="formPage == 1" fxLayout.lt-sm='column-reverse' fxLayout='row' style="color: white;width: 100%;">
                 <div fxFlex.sm="50" fxFlex='100' style="padding : 26px;">
-                    <agm-map [zoom]='18' style="height: 287px;" [latitude]="lat" [longitude]="lng">
+                    <agm-map [zoom]='20' style="height: 287px;" [latitude]="lat" [longitude]="lng">
                         <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                      </agm-map>
-             
+                    </agm-map>
+
                 </div>
-                <div style="height: 340px;" fxLayoutGap.lt-sm='10px' fxFlex='100' fxFlex.sm="50" fxLayout='column' fxLayoutAlign="space-evenly  none">
+                <div style="height: 340px;" fxLayoutGap.lt-sm='10px' fxFlex='100' fxFlex.sm="50" fxLayout='column'
+                    fxLayoutAlign="space-evenly  none">
                     <input formControlName="name" type="text" pInputText placeholder="Votre nom" />
                     <input formControlName="email" type="email" pInputText placeholder="Votre couriel" />
                     <input formControlName="phone" type="number" pInputText placeholder="Votre téléphone" />
@@ -47,20 +49,17 @@
         </form>
         <form [formGroup]='formStep3'>
             <div *ngIf="formPage==2">
-                <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap.lt-sm='10px' fxLayoutAlign='space-between '>
-                    <p-dropdown fxFlex='49' placeholder="--Année d'aquisition--" [style]="{'width': '100%'}"
+                <div fxLayout="column" fxLayoutGap='10px' fxLayoutAlign='space-between '>
+                    <p-dropdown fxFlex='49' placeholder="--Année d'aquisition--" [style]="{'width': '100%','text-align':'left'}"
                         formControlName="year" [options]="yearAq"></p-dropdown>
-                    <p-dropdown fxFlex='49' placeholder='--type de propriété--' [style]="{'width': '100%'}"
+                    <p-dropdown fxFlex='49' placeholder='--type de propriété--' [style]="{'width': '100%','text-align':'left'}"
                         formControlName="type" [options]="propertyType"></p-dropdown>
-
-                </div>
-                <div style="margin-top: 13px;" fxLayout.lt-sm="column" fxLayoutGap.lt-sm='10px' fxLayout="row wrap" fxLayoutAlign='space-between'>
-                    <input fxFlex="49" formControlName="price" type="number" pInputText
-                        placeholder="Prix d'aquisition" />
                     <input fxFlex="49" formControlName="bedrooms" type="number" pInputText
                         placeholder="Nombre de chambres" />
+
                 </div>
-                <div style="margin-top: 15px;"  fxLayout.lt-sm="column" fxLayoutGap.lt-sm='10px' fxLayout="row wrap" fxLayoutAlign='space-between'>
+                <div style="margin-top: 15px;" fxLayout.lt-sm="column" fxLayoutGap.lt-sm='10px' fxLayout="row wrap"
+                    fxLayoutAlign='space-between'>
                     <button (click)="formPage=1" fxFlex="49" pButton type="button" label="RETOUR"
                         class="p-button-danger"></button>
                     <button (click)="estimate()" fxFlex="49" pButton type="button" label="OBTENIR LA VALEUR"
@@ -95,16 +94,17 @@
                     croissance composée /an</span>
             </div>
         </div> -->
-        <div  fxLayout='column-reverse' fxLayoutGap.lt-sm='8px' style="margin-top: 20px;border-bottom: black 3px solid;padding-bottom: 6px;"
+        <div fxLayout='column-reverse' fxLayoutGap.lt-sm='8px'
+            style="margin-top: 20px;border-bottom: black 3px solid;padding-bottom: 6px;"
             fxLayoutAlign='space-between none'>
             <div fxFlex="20" style="text-align: left;font-size: 22px;font-weight: bold;">
                 Mohamed Ben Saidane<br><span style="font-weight: 600;font-size: 18px;"> Courtier Immobiler</span>
             </div>
             <div fxFlex="60" style="text-align: left;font-weight: bold;font-size: 20px;margin-bottom: 20px;">
-                Merci, Vous allez recevoir une évaluation approximative et l’un de nos agents vous appellera dans les prochaines 48 h pour établir l’évaluation marchande de votre propriété. 
+                Merci, Vous allez recevoir une évaluation approximative et l’un de nos agents vous appellera dans les
+                prochaines 48 h pour établir l’évaluation marchande de votre propriété.
             </div>
         </div>
     </div>
-    <div id="map" class="map"></div>
 
 </div>
